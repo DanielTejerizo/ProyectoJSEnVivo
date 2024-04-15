@@ -9,10 +9,28 @@
 <body>
   <h1 id="h1">Mi Biblioteca</h1>
   <br>
-  <input id="anio" value="0">
-  <input id="titulo" placeholder="Elige" width="150px">
-  <input id="autor" placeholder="Elige">
-  <input id="genero" placeholder="Elige">
+  <div class="eleccion">
+    <div class="eleccion1">
+      <label for="">Introduce un titulo</label>
+      <input type="text" id="titulo">
+      <button>Enviar</button>
+    </div>
+    <div class="eleccion2">
+      <label for="">Introduce un autor</label>
+      <input type="text" id="autor">
+      <button>Enviar</button>
+    </div>
+    <div class="eleccion3">
+      <label for="">Introduce un año</label>
+      <input type="text" id="anio">
+      <button>Enviar</button>
+    </div>
+    <div class="eleccion4">
+      <label for="">Introduce un genero</label>
+      <input type="text" id="genero">
+      <button>Enviar</button>
+    </div>
+  </div>
   <br>
   <table id="libros" border="1"></table>
   
