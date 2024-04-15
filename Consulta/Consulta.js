@@ -34,12 +34,12 @@ function crearCabecera() {
 }
 
 function elegir() {
-
-  let botonTitulo = document.getElementById("botonTitulo");
-  let botonAutor = document.getElementById("botonAutor");
-  let botonAnio = document.getElementById("botonAnio");
-  let botonGenero = document.getElementById("botonGenero");
-
+  
+  let botonTitulo=document.getElementById("botonTitulo");
+  let botonAutor=document.getElementById("botonAutor");
+  let botonAnio=document.getElementById("botonAnio");
+  let botonGenero=document.getElementById("botonGenero");
+ 
   botonAnio.addEventListener("click", conseguirDatos); //evento para que al hacer click
   botonTitulo.addEventListener("click", conseguirDatos); //evento para que al hacer click
   botonAutor.addEventListener("click", conseguirDatos); //evento para que al hacer click
@@ -60,9 +60,9 @@ function conseguirDatos() {
 
 function tratarDatos(datos) {
   let anio = document.getElementById("anio").value; //valor del input
-  let titulo = document.getElementById("titulo").value; //valor del input
-  let autor = document.getElementById("autor").value; //valor del input
-  let genero = document.getElementById("genero").value; //valor del input
+  let titulo=document.getElementById("titulo").value; //valor del input
+  let autor=document.getElementById("autor").value; //valor del input
+  let genero=document.getElementById("genero").value; //valor del input
   let tabla = document.getElementById("libros"); //tabla
   tabla.hidden = false; //mostrar tabla
   let tbody = document.getElementById("tbody"); //seleccionar el tbody
@@ -71,8 +71,11 @@ function tratarDatos(datos) {
   datos.libros.forEach((libro) => {
     //forEach
     if (
-        (titulo ==="" || libro.titulo === titulo) && (autor ==="" || libro.autor===autor) && (anio==="" || libro.anio===anio) && (genero==="" || libro.genero===genero)
-    ) {
+      (titulo === "" || libro.titulo === titulo) &&
+      (autor === "" || libro.autor===autor) &&
+      (anio === "" || libro.anio_publicacion <= parseInt(anio)) &&
+      (genero === "" || libro.genero===genero)
+    )  {
       //creo celdas
       let fila = document.createElement("tr");
       let celda1 = document.createElement("td");
@@ -116,8 +119,8 @@ function crearImagen(libro) {
     imagen.src = libro.imagen; //src
     imagen.alt = libro.imagen; //alt
     divImagen.append(imagen); //Meter imagen
-  } else {
-    let aviso = document.createElement("p") //Mensaje de aviso no salida
+  }else{
+    let aviso=document.createElement("p") //Mensaje de aviso no salida
     aviso.textContent("Sin imagen") //Texto
   }
 
