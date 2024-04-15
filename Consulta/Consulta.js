@@ -35,7 +35,10 @@ function crearCabecera() {
 
 function elegir() {
   
-  let botonAnio=document.getElementById
+  let botonTitulo=document.getElementById("botonTitulo");
+  let botonAutor=document.getElementById("botonAutor");
+  let botonAnio=document.getElementById("botonAnio");
+  let botonGenero=document.getElementById("botonGenero");
  
   botonAnio.addEventListener("click", conseguirDatos); //evento para que al hacer click
   botonTitulo.addEventListener("click", conseguirDatos); //evento para que al hacer click
