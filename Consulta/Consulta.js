@@ -34,34 +34,9 @@ function crearCabecera() {
 }
 
 function elegir() {
-  let labelAnio = document.createElement("label"); //crear label
-  labelAnio.append("Elige un año"); //contenido label
-  document.getElementById("h1").after(labelAnio);
-  let botonAnio = document.createElement("button"); //crear boton
-  botonAnio.append("Enviar"); //contenido boton
-
-  let labelTitulo = document.createElement("label"); //crear label
-  labelTitulo.append("Elige un titulo"); //contenido label
-  document.getElementById("h1").after(labelTitulo);
-  let botonTitulo = document.createElement("button"); //crear boton
-  botonTitulo.append("Enviar"); //contenido boton
-
-  let labelAutor = document.createElement("label"); //crear label
-  labelAutor.append("Elige un autor"); //contenido label
-  document.getElementById("h1").after(labelAutor);
-  let botonAutor = document.createElement("button"); //crear boton
-  botonAutor.append("Enviar"); //contenido boton
-
-  let labelGenero = document.createElement("label"); //crear label
-  labelGenero.append("Elige un genero"); //contenido label
-  document.getElementById("h1").after(labelGenero);
-  let botonGenero = document.createElement("button"); //crear boton
-  botonGenero.append("Enviar"); //contenido boton
-
-  document.getElementById("libros").before(botonAnio); //crear el boton antes de la tabla
-  document.getElementById("libros").before(botonTitulo); //crear el boton antes de la tabla
-  document.getElementById("libros").before(botonAutor); //crear el boton antes de la tabla
-  document.getElementById("libros").before(botonGenero); //crear el boton antes de la tabla
+  
+  let botonAnio=document.getElementById
+ 
   botonAnio.addEventListener("click", conseguirDatos); //evento para que al hacer click
   botonTitulo.addEventListener("click", conseguirDatos); //evento para que al hacer click
   botonAutor.addEventListener("click", conseguirDatos); //evento para que al hacer click
