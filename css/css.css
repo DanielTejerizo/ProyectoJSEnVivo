@@ -1,13 +1,16 @@
 .eleccion {
-    display: flex;
-  }
-  
-  .eleccion > div {
-    flex: 1; /* Divide el espacio disponible entre los elementos */
-    margin-right: 10px; /* Agrega un poco de espacio entre los elementos */
-  }
-  
-  .eleccion label {
-    margin-bottom: 5px;
-  }
-  
+  display: flex;
+}
+
+.eleccion > div {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.eleccion > div:last-child {
+  margin-right: 0; /* Elimina el margen derecho del último div */
+}
+
+.eleccion label {
+  margin-bottom: 5px;
+}
