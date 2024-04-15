@@ -46,6 +46,40 @@ function elegir() {
   botonGenero.addEventListener("click", conseguirDatos); //evento para que al hacer click
 }
 
+function obtenerTitulo(libro) {
+  let titulos = [];
+
+  libro.forEach(objeto => {
+      if (!titulos.includes(objeto.titulo)) {
+          titulos.push(objeto.titulo);
+      }
+  })
+  return titulos
+}
+
+function obtenerAutor(libro) {
+  let autores = [];
+
+  libro.forEach(objeto => {
+      if (!autores.includes(objeto.autor)) {
+          autores.push(objeto.autor);
+      }
+  })
+  return autores
+}
+
+function obtenerGenero(libro) {
+  let generos = [];
+
+  libro.forEach(objeto => {
+      if (!generos.includes(objeto.genero)) {
+          generos.push(objeto.genero);
+      }
+  })
+  return generos
+}
+
+
 function conseguirDatos() {
   fetch("../php/datos.php")
     .then((response) => response.json())
