@@ -39,25 +39,16 @@ function Enviar() {
 }
 
 function borrarDatos() {
-
-    let datos = {
-        titulo: "Título del libro",
-        autor: "Autor del libro",
-        anio_publicacion: 2024,
-        genero: "Género del libro",
-        imagen: "URL de la imagen"
-    };
-
-    // Configuración de la solicitud Fetch
-    fetch("../php/Insertar.php") 
-        .then(response => response.json())
-        .then(data => {
-            tratarDatos(data); // Manejar la respuesta del servidor
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+    fetch("../php/Borrar.php")
+    .then(response => response.json())
+    .then(data => {
+        tratarDatos(data); 
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }
+
 
 function tratarDatos(datos) {
     let anio = document.getElementById("anio").value; //valor del input
