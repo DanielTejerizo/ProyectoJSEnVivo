@@ -49,18 +49,55 @@ function insertarDatos() {
     };
 
     // Configuración de la solicitud Fetch
-    fetch("../php/Insertar.php", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(datos)
-    })
+    fetch("../php/Insertar.php") 
         .then(response => response.json())
         .then(data => {
-            console.log(data); // Manejar la respuesta del servidor
+            tratarDatos(data); // Manejar la respuesta del servidor
         })
         .catch(error => {
             console.error('Error:', error);
         });
 }
+
+function tratarDatos(datos) {
+    let anio = document.getElementById("anio").value; //valor del input
+    let titulo=document.getElementById("titulo").value; //valor del input
+    let autor=document.getElementById("autor").value; //valor del input
+    let genero=document.getElementById("genero").value; //valor del input
+    let imagen=document.getElementById("imagen").value; //valor del input
+    let tabla = document.getElementById("libros"); //tabla
+    tabla.hidden = false; //mostrar tabla
+    let tbody = document.getElementById("tbody"); //seleccionar el tbody
+    tbody.innerHTML = ""; //limpiar
+  
+    datos.libros.forEach((libro) => {
+        //creo celdas
+        let fila = document.createElement("tr");
+        let celda1 = document.createElement("td");
+        let celda2 = document.createElement("td");
+        let celda3 = document.createElement("td");
+        let celda4 = document.createElement("td");
+        let celda5 = document.createElement("td");
+        let boton = document.createElement("button");
+        boton.id = "boton";
+        boton.append("Ver");
+        boton.addEventListener("click", function () {
+          crearImagen(libro); //imagen del libro
+        });
+        celda5.append(boton);
+  
+        celda1.append(libro.titulo); //en la celda 1 poner el titulo del libro
+        celda2.append(libro.autor); //en la celda 2 poner el autor del libro
+        celda3.append(libro.anio_publicacion); //en la celda 3 poner el año de publicacion del libro
+        celda4.append(libro.genero); //en la celda 4 poner el genero del libro
+        celda5.append(libro.imagen); //en la celda 4 poner el genero del libro
+        fila.append(celda1); //añadir celdas a las filas
+        fila.append(celda2);
+        fila.append(celda3);
+        fila.append(celda4);
+        fila.append(celda5);
+  
+        tbody.append(fila); //añadir fila al tbody
+      }
+    );
+  }
