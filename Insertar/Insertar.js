@@ -39,12 +39,29 @@ function crearCabecera() {
   }
 
   function insertarDatos() {
-    fetch("../php/Insertar.php")
-      .then((response) => response.json())
-      .then((data) => {
-        tratarDatos(data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+    
+    let datos = {
+      titulo: "Título del libro",
+      autor: "Autor del libro",
+      anio_publicacion: 2024,
+      genero: "Género del libro",
+      imagen: "URL de la imagen"
+    };
+  
+    // Configuración de la solicitud Fetch
+    fetch("../php/Insertar.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(datos)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data); // Manejar la respuesta del servidor
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
   }
+  
