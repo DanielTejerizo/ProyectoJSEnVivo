@@ -47,7 +47,7 @@ function elegir() {
 }
 
 function conseguirDatos() {
-  fetch("../php/datos.php")
+  fetch("../php/Consulta.php")
     .then((response) => response.json())
     .then((data) => {
       tratarDatos(data);
