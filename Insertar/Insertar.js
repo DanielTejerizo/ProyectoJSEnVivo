@@ -100,7 +100,6 @@ function tratarDatos(datos) {
       celda2.append(libro.autor); //en la celda 2 poner el autor del libro
       celda3.append(libro.anio_publicacion); //en la celda 3 poner el año de publicacion del libro
       celda4.append(libro.genero); //en la celda 4 poner el genero del libro
-      celda5.append(libro.imagen); //en la celda 4 poner el genero del libro
       fila.append(celda1); //añadir celdas a las filas
       fila.append(celda2);
       fila.append(celda3);
