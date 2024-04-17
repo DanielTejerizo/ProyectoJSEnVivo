@@ -62,6 +62,7 @@ function insertarDatos() {
 }
 
 function tratarDatos(datos) {
+  let tabla=document.getElementById("libros")
   tabla.hidden = false; //mostrar tabla
   let tbody = document.getElementById("tbody"); //seleccionar el tbody
   tbody.innerHTML = ""; //limpiar
