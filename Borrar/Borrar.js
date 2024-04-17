@@ -53,7 +53,7 @@ function borrarDatos() {
   let titulo = document.getElementById("titulo").value; //valor del input
   let datos = new FormData();
   datos.append("titulo", titulo);
-  fetch("../php/Borrar.php")
+  fetch("../php/Borrar.php", { method: "POST", body: datos })
     .then((response) => response.json())
     .then((data) => {
       tratarDatos(data);
