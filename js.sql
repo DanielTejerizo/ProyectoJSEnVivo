@@ -27,31 +27,9 @@ CREATE TABLE IF NOT EXISTS `js`.`Productos` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `js`.`Clientes`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `js`.`Clientes` (
-  `dni` VARCHAR(9) NOT NULL,
-  `nombre` VARCHAR(45) NOT NULL,
-  `apellidos` VARCHAR(200) NOT NULL,
-  `telefono` INT NOT NULL,
-  `email` VARCHAR(200) NOT NULL,
-  PRIMARY KEY (`dni`))
-ENGINE = InnoDB;
-
-
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-/*-----------------------------Clientes-------------------------------------------*/
-
-INSERT INTO clientes (dni, nombre, apellidos, telefono, email) 
-VALUES ("12345678A", "Juan", "Gómez Pérez", "983521421", "juangope@gmail.com"),
-("98765432B", "María", "López García", "983251474", "marialoga@gmail.com"),
-("56789012C", "Pedro", "Martínez Ruiz", "983656558", "pedromarui@hotmail.com"),
-("34567890D", "Ana", "González Sánchez", "983522554", "anagosanch@gmail.com"),
-("11111111E", "Laura", "Díaz López", "983254714", "lauradilope@gmail.com");
 
 /*-----------------------------Productos---------------------------------------------------------------------------*/
 
