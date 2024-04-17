@@ -38,6 +38,17 @@ function Enviar() {
   boton.addEventListener("click", insertarDatos);
 }
 
+function conseguirDatos() {
+  fetch("../php/Consulta.php")
+    .then((response) => response.json())
+    .then((data) => {
+      tratarDatos(data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+}
+
 function insertarDatos() {
   let anio = document.getElementById("anio").value; //valor del input
   let titulo = document.getElementById("titulo").value; //valor del input
@@ -55,6 +66,7 @@ function insertarDatos() {
     .then((response) => response.json())
     .then((data) => {
       tratarDatos(data);
+      conseguirDatos();
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -62,7 +74,7 @@ function insertarDatos() {
 }
 
 function tratarDatos(datos) {
-  let tabla=document.getElementById("libros")
+  let tabla = document.getElementById("libros");
   tabla.hidden = false; //mostrar tabla
   let tbody = document.getElementById("tbody"); //seleccionar el tbody
   tbody.innerHTML = ""; //limpiar
