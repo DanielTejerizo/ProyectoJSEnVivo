@@ -111,3 +111,23 @@ function tratarDatos(datos) {
     });
   }
 }
+
+function crearImagen(libro) {
+  //Funcion para sacar imagen debajo
+  let divImagen = document.getElementById("libro"); //Crear el div de la imagen
+
+  // Limpiar
+  divImagen.innerHTML = "";
+
+  if (libro.imagen) { //Si existe, que lo haga
+    let imagen = document.createElement("img"); //Crear elemento imagen
+    imagen.id = "imagen"; //id
+    imagen.src = libro.imagen; //src
+    imagen.alt = libro.imagen; //alt
+    divImagen.append(imagen); //Meter imagen
+  }else{
+    let aviso=document.createElement("p") //Mensaje de aviso no salida
+    aviso.textContent("Sin imagen") //Texto
+  }
+
+}
