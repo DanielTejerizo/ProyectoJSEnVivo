@@ -69,16 +69,59 @@ function obtenerTitulos(libro) {
   })
   return titulos
 }
+function obtenerAutores(libro) {
+  let autores = [];
+
+  libro.forEach(obj => {
+      if (!autores.includes(obj.autor)) {
+        autores.push(obj.autor);
+      }
+  })
+  return autores
+}
+function obtenerGeneros(libro) {
+  let generos = [];
+
+  libro.forEach(obj => {
+      if (!generos.includes(obj.genero)) {
+        generos.push(obj.genero);
+      }
+  })
+  return generos
+}
 
 function generarSelect(data) {
-  const select = document.getElementById('titulo');
-  const titulos = obtenerTitulos(data.libros); 
+  //Select titulos
+  let selectTitulos = document.getElementById('titulo');
+  let titulos = obtenerTitulos(data.libros); 
 
-  select.innerHTML = ''; 
-  select[0] = new Option("<Seleccionar>", ""); 
+  selectTitulos.innerHTML = ''; 
+  selectTitulos[0] = new Option("<Seleccionar>", ""); 
 
   titulos.forEach((titulo, i) => {
-     select[i+1] = new Option(titulo, titulo); 
+     selectTitulos[i+1] = new Option(titulo, titulo); 
+  });
+
+  //Select autores
+  let selectAutores = document.getElementById('autor');
+  let autores = obtenerAutores(data.libros); 
+
+  selectAutores.innerHTML = ''; 
+  selectAutores[0] = new Option("<Seleccionar>", ""); 
+
+  autores.forEach((genero, i) => {
+     selectAutores[i+1] = new Option(genero, genero); 
+  });
+
+  //Select generos
+  let selectGeneros = document.getElementById('genero');
+  let generos = obtenerGeneros(data.libros); 
+
+  selectGeneros.innerHTML = ''; 
+  selectGeneros[0] = new Option("<Seleccionar>", ""); 
+
+  generos.forEach((genero, i) => {
+     selectGeneros[i+1] = new Option(genero, genero); 
   });
 }
 
