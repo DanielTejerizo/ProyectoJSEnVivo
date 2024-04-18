@@ -74,7 +74,7 @@ function tratarDatos(datos) {
     if (
       (titulo === "" || libro.titulo === titulo) &&
       (autor === "" || libro.autor===autor) &&
-      (anio === "" || libro.anio_publicacion <= parseInt(anio)) &&
+      (anio === "" || libro.anio_publicacion===anio) &&
       (genero === "" || libro.genero===genero)
     )  {
       //creo celdas
