@@ -62,16 +62,29 @@ function insertarDatos() {
   datos.append("genero", genero);
   datos.append("imagen", imagen);
 
-  fetch("../php/Insertar.php", { method: "POST", body: datos })
-    .then((response) => response.json())
-    .then((data) => {
-      tratarDatos(data);
-      conseguirDatos();
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+  if (titulo === "" || autor === "" || anio === "" || genero === "" || imagen === "") {
+    let error = document.getElementById("error"); 
+    if (!error) { 
+      error = document.createElement("div");
+      error.id = "error";
+      document.body.append(errorDiv);
+    }
+    error.textContent = "Por favor, complete todos los campos."; // Mensaje de error
+
+  } else {
+    // Si todos los campos están llenos, realizar la solicitud fetch
+    fetch("../php/Insertar.php", { method: "POST", body: datos })
+      .then((response) => response.json())
+      .then((data) => {
+        tratarDatos(data);
+        conseguirDatos();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
 }
+
 
 function tratarDatos(datos) {
   let tabla = document.getElementById("libros");
