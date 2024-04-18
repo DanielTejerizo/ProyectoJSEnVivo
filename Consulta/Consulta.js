@@ -51,12 +51,37 @@ function conseguirDatos() {
   fetch("../php/Consulta.php")
     .then((response) => response.json())
     .then((data) => {
+      generarSelect(data);
       tratarDatos(data);
     })
     .catch((error) => {
       console.error('Error:', error);
     });
 }
+
+function obtenerTitulos(libro) {
+  let titulos = [];
+
+  libro.forEach(obj => {
+      if (!titulos.includes(obj.titulo)) {
+        titulos.push(obj.titulo);
+      }
+  })
+  return titulos
+}
+
+function generarSelect(data) {
+  const select = document.getElementById('titulo');
+  const titulos = obtenerTitulos(data.libros); 
+
+  select.innerHTML = ''; 
+  select[0] = new Option("<Seleccionar>", ""); 
+
+  titulos.forEach((titulo, i) => {
+     select[i+1] = new Option(titulo, titulo); 
+  });
+}
+
 
 
 function tratarDatos(datos) {
