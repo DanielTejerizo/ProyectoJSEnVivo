@@ -1,0 +1,18 @@
+#Cabecera {
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+}
+
+#Cabecera a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#Cabecera a:hover {
+    background-color: #555;
+}
