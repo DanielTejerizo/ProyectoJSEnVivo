@@ -1,7 +1,6 @@
 window.onload = function () {
   crearCabecera();
   Enviar();
-  conseguirDatos(); // Llama a la función para obtener los géneros al cargar la página
 };
 
 function crearCabecera() {
@@ -43,37 +42,12 @@ function conseguirDatos() {
   fetch("../php/Consulta.php")
     .then((response) => response.json())
     .then((data) => {
-      generarSelect(data); // Llenar el select de géneros
+      tratarDatos(data);
     })
     .catch((error) => {
       console.error("Error:", error);
     });
 }
-
-function generarSelect(data) {
-  let selectGenero = document.getElementById("genero");
-  let generos = obtenerGeneros(data.libros);
-
-  selectGenero.innerHTML = "";
-  selectGenero.innerHTML += '<option value="">Seleccionar</option>';
-
-  generos.forEach((genero, i) => {
-    selectGenero.innerHTML += `<option value="${genero}">${genero}</option>`;
-  });
-}
-
-function obtenerGeneros(libros) {
-  let generos = [];
-
-  libros.forEach((libro) => {
-    if (!generos.includes(libro.genero)) {
-      generos.push(libro.genero);
-    }
-  });
-
-  return generos;
-}
-
 
 function insertarDatos() {
   let anio = document.getElementById("anio").value; //valor del input
