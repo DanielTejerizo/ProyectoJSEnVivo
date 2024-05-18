@@ -11,14 +11,14 @@ $anio_publicacion = $_POST['anio_publicacion'];
 $genero = $_POST['genero'];
 $imagen = $_FILES['imagen'];
 
-$target_dir = "../Img/";
-$target_file = $target_dir . basename($imagen["name"]);
-$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+$dir = "../Img/";
+$file = $dir . basename($imagen["name"]);
+$image = strtolower(pathinfo($file, PATHINFO_EXTENSION));
 $check = getimagesize($imagen["tmp_name"]);
 
 if ($check !== false) {
-    if (move_uploaded_file($imagen["tmp_name"], $target_file)) {
-        $imagen_url = $target_file;
+    if (move_uploaded_file($imagen["tmp_name"], $file)) {
+        $imagen_url = $file;
         $sql = "INSERT INTO productos (titulo, autor, anio_publicacion, genero, imagen) VALUES (?, ?, ?, ?, ?)";
         $stmt = $conexion->prepare($sql);
         $stmt->bind_param("ssiss", $titulo, $autor, $anio_publicacion, $genero, $imagen_url);
